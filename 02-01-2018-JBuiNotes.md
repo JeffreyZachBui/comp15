@@ -141,3 +141,14 @@ so now
 l2.insert(pluto)
 foo(l); //invokes copy constructor
 ```
+
+To do this:
+
+1) Copy planets from the orignal to the new one.
+head.info = otherhead.info
+
+then set the NEXT pointer to NULL
+
+Planet class is NOT dynamic
+
+u
