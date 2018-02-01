@@ -6,8 +6,6 @@ Class notes
 **Pointers**
 
 
-
-
 ```
 Struct NodeType
 {
@@ -75,3 +73,71 @@ Insert Jupitor:
        |Jupiter |
        |--------|
        |        |
+
+    - Update pointers so we can insert jupiter to the front of the LinkedList
+
+- Head WAS pointing to the front of the list, so we want head to be pointing to Jupiter
+- node->next = head
+  head = node
+
+```
+void LinkedList::insert_planet(Planet p)
+{
+    NodeType *node = new NodeType; // allocated NodeType on heap
+    node->info = p; // Setting the NodeType's info to planet, 
+    node->next = head
+    head = node;
+    length++
+}
+```
+
+because it is a pointer to an object, we use arrows.
+ ```   
+(*node).info = p = node->info
+```
+
+How make a find function
+
+- Create while loop for as long as node isn't pointing to the NULL
+- node->info == p
+- returmn node -> info
+
+
+**Copy Constructors + Rule of 3**
+
+If your class has dynamic memory then u must write:
+
+1) A destructor -> Deallocate memory once object goes out of scope
+2) Copy constructor
+3) Assignment opertator
+
+```
+
+Class LinkedList
+{
+    public:
+
+
+    private:
+
+        NodeType *head;
+}
+
+```
+
+```
+LinkedList l;
+LinkedList l2;
+// more code
+l = l2; // what this does is that l and l2 are pointing to the EXACT same spaces in memory so if you do l2.insert(pluto) both l and l2 will have pluto
+```
+The assignment operater = results in SHALLOW COPYING. Thus, we need copy constructor
+
+**Copy Constructor** is for deep copying and is when we **pass by value**
+
+so now 
+
+```
+l2.insert(pluto)
+foo(l); //invokes copy constructor
+```
