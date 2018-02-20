@@ -35,8 +35,13 @@ Thus:
     - height = how low it goes
     - O(n) lln is the number of nodes 
 
-**Destructor**
+**Destructor(BT/BST)**
 - destroy left subtree
 - destroy right subtree
 - delete myself
 - O(n)
+
+**find (BST)**
+- base case(empty tree)
+- If found, return
+- search in left subtree **OR** in right subtree 
